@@ -26,7 +26,7 @@ if ( is_multisite() ) {
 	}
 
 	if ( ! defined( 'MULTISITE' ) ) {
-		wp_die( __( 'The Network creation panel is not for WordPress MU networks.' ) );
+		wp_die( __( 'The Network creation panel is not for WordPress Multisite networks.' ) );
 	}
 }
 
@@ -37,7 +37,7 @@ foreach ( $wpdb->tables( 'ms_global' ) as $table => $prefixed_table ) {
 	$wpdb->$table = $prefixed_table;
 }
 
-if ( ! network_domain_check() && ( ! defined( 'WP_ALLOW_MULTISITE' ) || ! WP_ALLOW_MULTISITE ) ) {
+if ( ! network_domain_check() && ( defined( 'WP_ALLOW_MULTISITE' ) && ! WP_ALLOW_MULTISITE ) ) {
 	wp_die(
 		printf(
 			/* translators: 1: WP_ALLOW_MULTISITE, 2: wp-config.php */

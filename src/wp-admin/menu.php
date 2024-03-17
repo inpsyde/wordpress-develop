@@ -380,7 +380,7 @@ $menu[75]                     = array( __( 'Tools' ), 'edit_posts', 'tools.php',
 if ( is_multisite() && ! is_main_site() ) {
 	$submenu['tools.php'][35] = array( __( 'Delete Site' ), 'delete_site', 'ms-delete-site.php' );
 }
-if ( ! is_multisite() && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
+if ( ! is_multisite() && ( ! defined( 'WP_ALLOW_MULTISITE' ) || WP_ALLOW_MULTISITE ) ) {
 	$submenu['tools.php'][50] = array( __( 'Network Setup' ), 'setup_network', 'network.php' );
 }
 
